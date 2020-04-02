@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta charset="utf-8" >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>GeoCovid</title>
+      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+      
+      <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+     
+      <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+      
+
+   </head>
+   <body onload="init();">
+      <div id="hovering-logo">
+        <!--  -->
+         <div id="hovering-back">
+            <img src="assets/img/geoCovid.png">
+            <div class="dropdown">
+               <input id="searchbar" type="text" onkeyup="filterFunction()" placeholder="Select country...">
+               <div id="country-list" class="dropdown-content">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="chart">
+        <div id="chart-main" >
+            <div id="hide-menu" >
+               <h1 id="title-chart">GeoCOVID.com</h1>
+               <a href="javascript:void(0)" class="closebtn" onclick="toggleChart()">&times;</a>
+            </div>
+           </div>
+          <div id="chart-content">
+            <div id="chart-body">
+               <div id="chart-header">
+                  <div id="chart-header-img-mask">
+                     <div id="box-country">
+                        <h5 id="country" class="tittle"></h5>
+                     </div>
+                     <div id="img-box">
+                        <img id="chart-picture" class="country-picture" src="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="chart-stats">
+               <div class="input-block">
+                   <label for="cases-label">Cases:</label>
+                   <span id="cases-value"></span>
+		         </div>
+               <div class="input-block">
+                   <label for="deaths-label">Deaths:</label>
+                   <span id="deaths-value"></span>
+		         </div>
+               <div class="input-block">
+                   <label for="recovered-label">Recovered:</label>
+                   <span id="recovered-value"></span>
+		         </div>
+               <div id="chart-topinfo">
+                  <div id="title-share">
+                     <p>Share on:</p>
+                  </div>
+                  <div class="social-media-block">
+                     
+                     <a id="facebook-share" href="" target="_blank"  ><img src="assets/img/facebook.png" onclick="btnVelhoFacebook.call(this)" onmouseover="btnNovoFacebook.call(this)" onmouseout="btnVelhoFacebook.call(this)" ></a> 
+                     
+                     <a id="twitter-share" href="" target="_blank"><img src="assets/img/twitter.png" onclick="btnVelhoTwitter.call(this)" onmouseover="btnNovoTwitter.call(this)" onmouseout="btnVelhoTwitter.call(this)" ></a>
+                     
+                     <a id="whats-share" href="" target="_blank"><img src="assets/img/whatsapp.png" onclick="btnVelhoWhats.call(this)" onmouseover="btnNovoWhats.call(this)" onmouseout="btnVelhoWhats.call(this)"></a>
+                     
+                     <div class="tooltip">
+                        <span class="tooltiptext" id="myTooltip">Copy</span>
+                        <a id="clipboard-share" href="#" ><img src="assets/img/clipboard.png" onclick="btnVelhoClip.call(this); clipCopy();" onmouseover="btnNovoClip.call(this);" onmouseout="btnVelhoClip.call(this);outFunc();"></a>
+                     </div>  
+                     <input type="text" value="d" id="myInput">
+                  </div>
+                </div>
+              </div>
+              <div id="chart-footer">
+                 <div id="health">
+                    <h2>In emergencies, Call: </h2>
+                    <a href="tel:+351999888777">+351 999 888 777</a>
+                 </div>
+              </div>
+            </div>
+         </div>
+      <div id="mapdiv" oncontextmenu="return false;"></div>
+      
+      <script src="https://unpkg.com/@mapbox/leaflet-pip@latest/leaflet-pip.js"></script>
+      <script src="assets/js/countryISOmapping.js"></script>
+      <script src="assets/js/population.js"></script>
+      <script src="assets/js/countryCoords.js"></script>
+      <script src="assets/js/utils.js"></script>
+      <script src="assets/js/geolocation.js"></script>
+      <script src="assets/js/maphandler.js"></script>    
+      <script src="assets/js/searchbar.js"></script> 
+      <script src="assets/js/init.js"></script> 
+   </body>
+</html>

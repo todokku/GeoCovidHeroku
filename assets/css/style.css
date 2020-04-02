@@ -1,0 +1,600 @@
+body {
+   margin: 0;
+   font-family: "Roboto";
+}
+
+h5, h1 ,a, p,h3 { 
+   padding: 0px;
+   margin: 0px;
+}
+
+#myInput{
+   width: 0.5px;
+   height: 0.5px;
+   visibility: hidden;
+}
+
+a{
+   text-decoration: none;
+}
+
+#mapdiv {
+   position: fixed;
+   height: 100%;
+   width: 100%;
+   z-index: -1;
+}
+
+/* page header */
+
+#hovering-logo {
+   position: fixed;
+   top: 24px;
+   left: 35px;
+   width: 195px;
+   transition: 0.5s;
+}
+
+#hovering-logo input[type=text] {
+   width: 90px;
+   height: 48px;
+   border: none;
+   background-color: whitesmoke;
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+   border-radius: 25px;
+}
+
+#hovering-logo input[type=text]:focus{
+   
+   width: 240px;
+   
+}
+
+
+#hovering-logo button[type=submit]{
+   
+   height: 15px;
+}
+
+
+#hovering-logo a[type=submit]:hover {
+   background: green;
+   
+}
+
+#country-list{
+   
+   max-height: 150px;
+}
+
+input:focus {
+   outline: none;
+}
+
+#hovering-back:focus{
+   width: 278px;
+   -webkit-transition: width 0.5s ease-in-out;
+   transition: width 0.5s ease-in-out;
+   
+}
+
+
+#hovering-back{
+   display: flex;
+   flex-direction: row;
+   background-color: whitesmoke;
+   width: 168px;
+   height: 50px;
+   border-radius: 25px;
+   
+   
+}
+
+#hovering-back img{
+  width: 50px;
+   height: 50px;
+   padding: 0 1px;
+  
+}
+
+
+
+/* customize label (the container) */
+.container {
+   display: block;
+   position: relative;
+   padding-left: 20px;
+   user-select: none;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   cursor: pointer;
+}
+
+.button {
+   position: relative;
+   padding: 10px 13px;
+   background-color: #ffb100;
+   box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   border: 1px solid #c78a00;
+   color: black;
+   font-size: 12px;
+   cursor: pointer;
+}
+
+.button:hover {
+   background-color: #ffda84;
+}
+
+#chart {
+   position: fixed;
+   height: 100%;
+   z-index: 1;
+   transition: 0.5s;
+   width: 0px;
+  
+   box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   background-color: #4ea5a2;
+   -webkit-box-shadow: 0px 0px 45px 3px rgba(0,0,0,0.70);
+   -moz-box-shadow: 0px 0px 45px 3px rgba(0,0,0,0.70);
+   box-shadow: 0px 0px 45px 3px rgba(0,0,0,0.70);
+}
+
+
+#chart .closebtn {
+   font-size: 2.8em;
+   text-decoration: none;
+   color: black;
+   margin-left:  10px;
+}
+/*
+#chart .closebtn {
+   position: absolute;
+   top: 7px;
+   right: 15px;
+   color: black;
+   font-size: 2.6em;
+   text-decoration: none;
+}
+
+
+#title-chart {
+   position: absolute;
+   top: 20px;
+   right: 150px;
+   color: black;
+   font-size: 2.25em;
+   color: white;
+   
+}
+
+*/
+
+#title-chart {
+   font-size: 2.25em;
+   padding-top: 15px;
+}
+
+#chart-header {
+   min-height: 165px;
+   margin-bottom: 1px;
+}
+
+#chart-picture {
+   float: left;
+   /*height: 100px;*/
+   width: 150px;
+   margin-right: 15px;
+}
+
+#chart-topinfo p.title {
+   font-size: 25px;
+   text-align: left;
+   font-weight: bold;
+}
+
+#chart-topinfo p {
+   margin-block-start: 0;
+   margin-block-end: 6px;
+}
+
+#chart-summary, #chart-filters, #chart-gallery, #chart-links {
+   margin-top: 10px;
+}
+
+#chart::-webkit-scrollbar {
+   width: 15px;
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f6f6f6;
+   min-width: 192px;
+   overflow: auto;
+   border: 1px solid #ddd;
+   z-index: 1;
+}
+
+.dropdown-content a {
+   color: black;
+   padding: 1px;
+   font-size: 0.9em;
+   text-decoration: none;
+   display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+::-webkit-scrollbar {
+   width: 10px;
+}
+
+::-webkit-scrollbar-track {
+   background: #fff; 
+}
+
+::-webkit-scrollbar-thumb {
+   background:#9dc8ce;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background:#becfd1;
+}
+
+.input-block {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   min-height: 40px;
+   margin-top: 10px;
+   color: black;
+   font-size: 2em;
+   padding: 0 35px;
+}
+
+#icons-share img{
+   padding: 2px;
+   height: 30px;
+   width: 30px;
+   border-radius: 10px;
+}
+
+span, label  {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#chart-footer{
+  padding-top: 20px;
+}
+
+#chart-footer-powered{
+   display: flex;
+   flex-direction: row;
+}
+
+#logo{
+   width: 100px;
+}
+
+#chart-main{
+   
+   margin: 0;
+   padding: 0;
+   font-family: "Nunito", Helvetica, Arial, sans-serif;
+   color: white;
+   border-bottom: 1px solid white;
+}
+
+
+
+#chart-header{
+   padding-top: 60px;
+   color: white;
+   font-family: "Nunito", Helvetica, Arial, sans-serif;
+}
+
+#chart-header-img-mask {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+#box-country{
+   display: flex;
+   flex-direction: row;
+   text-align: center;
+}
+
+#box-country h5{
+   font-size: 1.75em;
+}
+
+#chart-topinfo{
+   display: flex;
+   flex-direction: row; 
+   justify-content: space-around;
+}
+
+#chart-stats{
+   padding-bottom: 20px;
+   border-bottom: 1px solid white;
+}
+
+#chart-footer{
+   display: flex;
+   width: 100%;
+   flex-direction: row;
+   padding-top: 20px;
+   justify-content: center;
+   color: white;
+}
+
+#health h2, span{
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+#health h2{
+   font-size: 1.6em;   
+   margin:5px;
+}
+
+#health a{
+   color: white;
+   padding-top: 0;
+   margin-top: 0px;
+   font-family: "Nunito", Helvetica, Arial, sans-serif;
+   font-size: 1.5em
+}
+
+#health{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color:white;
+}
+
+#chart-footer-powered{
+   padding-top: 20px;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   align-content: center;
+}
+
+#chart-footer-powered a{
+   color: white;
+}
+
+
+
+.social-media-block{
+   padding-top: 5px;
+   padding-left: 5px;
+   height: 50px;
+}
+
+.social-media-block a{
+   padding: 0 2px;
+}
+
+.social-media-block img{
+   width: 40px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 65px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 1px;
+  position: absolute;
+  z-index: 1;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -35px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+#share-title {
+   font-family: "Nunito", Helvetica, Arial, sans-serif;
+   font-size: 1.1em;
+}
+
+#chart-topinfo{
+   padding-left: 30px;
+}
+
+#img-box{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 10px;
+   padding-left: 15px;
+   height: 150px;
+   background-color:#4ea5a2;
+}
+
+#chart-topinfo{ 
+   padding-top: 15px;
+   padding-right: 20px;
+   display: flex;
+   flex-direction: row;
+   justify-content:space-around;
+}
+
+#chart-topinfo p{
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 1.6em;
+   padding-top: 10px;
+}
+
+#chart-content{
+   
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+  
+
+#chart-main{
+   height: 85.88px;
+}
+
+#hide-menu{
+   width: 450px;
+   display: flex;
+   flex-direction:row;
+   justify-content: space-around;
+   position: absolute;
+   right: 0px;
+   top: 10px;
+}
+
+
+@media screen and (max-width: 620px) {  
+   
+   #title-chart{
+      padding-left: 40px;
+      
+   }
+   
+   #hovering-logo {
+   position: fixed;
+   top: 25px;
+   left: 25px;
+   width: 195px;
+   transition: 0.5s;
+}
+   
+   .leaflet-control-zoom{
+      visibility: hidden;
+   }
+
+   #chart .closebtn {
+      
+     font-size: 2.8em;
+    
+   }
+
+   #chart-content::-webkit-scrollbar {
+      width: 0px;
+   }
+}
+
+@media screen and (max-width: 430px) {  
+   #title-chart{
+      padding-left: 45px;
+   }
+   
+.leaflet-control-attribution {
+   font-size: 0em;
+   letter-spacing: -0.8px;
+}
+
+#chart-header{
+   padding-top: 20px;
+}
+   
+#chart-footer{
+   display: flex;
+   width: 100%;
+   flex-direction: row;
+   align-items: center;
+   padding-top: 20px;
+   justify-content: space-around;
+}
+
+#health{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+}
+
+@media screen and (max-width: 390px) { 
+
+   #title-chart{
+      padding-left: 55px;
+  
+      
+   }
+ 
+   
+   #logo-chart img{
+   display: none;
+}
+
+#health{
+   text-align: center;
+}
+
+#chart-footer{
+   display: flex;
+   width: 100%;
+   flex-direction: row;
+   align-items: center;
+   padding-top: 10px;
+   justify-content: space-around;
+}
+   
+#health{
+   padding-top: 0px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-bottom: 10px;
+}
+   
+#title-share p{
+   font-size: 1.1em;
+}
+
+}
+
+@media screen and (max-width: 370px) { 
+   
+   #title-chart{
+      padding-left: 130px;
+   }
+ 
+ 
+}
